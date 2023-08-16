@@ -10,7 +10,7 @@ import {
 
 import { useRouter } from 'expo-router';
 import { icons, SIZES } from '../../../constants';
-import styles from './redeem.style'
+import styles from './welcome.style'
 
 const filterTypes = ["All", "New", "Popular", "Top Rated", "Trending", "Upcoming"]
 

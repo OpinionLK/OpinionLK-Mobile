@@ -4,13 +4,17 @@ import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants";
 
 const styles = StyleSheet.create({
   container: (selectedJob, item) => ({
-    width: 250,
-    padding: SIZES.xLarge,
+    width: 260,
+    padding: 5,
     backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",
     borderRadius: SIZES.medium,
     justifyContent: "space-between",
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "space-between",
+    columnGap: SIZES.xSmall,
   }),
   logoContainer: (selectedJob, item) => ({
     width: 50,
@@ -21,8 +25,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   }),
   logoImage: {
-    width: "70%",
-    height: "70%",
+    width: 50,
+    height: 50,
   },
   companyName: {
     fontSize: SIZES.medium,
@@ -54,6 +58,42 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
     color: "#B3AEC6",
   },
+
+
+  getBtn: {
+    width: 50,
+    color: COLORS.tertiary,
+    padding: SIZES.xSmall,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: COLORS.tertiary,
+    borderRadius: SIZES.small,
+  },
+  buttonText: {
+    fontSize: FONT.small,
+    fontFamily: FONT.bold,
+    color: COLORS.white,
+  },
+  couponContainer: {
+    border: "1px solid"+COLORS.tertiary,
+    borderRadius: SIZES.xSmall,
+    padding: SIZES.xSmall,
+    backgroundColor: COLORS.white,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    columnGap: SIZES.xSmall,
+  },
+  Title: {
+    fontSize: SIZES.medium,
+    fontFamily: FONT.medium,
+    color: COLORS.primary,
+  },
+  Description: {
+    fontSize: SIZES.small - 2,
+    fontFamily: FONT.regular,
+    
+  }
 });
 
 export default styles;

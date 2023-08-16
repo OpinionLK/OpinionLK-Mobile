@@ -9,7 +9,7 @@ import { useRouter } from 'expo-router';
 
 import useFetch from '../../../hook/useFetch';
 
-import styles from './popularcoups.style'
+import styles from './popularjobs.style'
 
 const Popularjobs = () => {
   const router = useRouter();
@@ -36,12 +36,11 @@ const Popularjobs = () => {
           data={[1,2,3,4,5]}
           renderItem={({ item }) => (
             <PopularJobCard
-              item = {item}
+              // item = {item}
             />
           )}
           keyExtreactor={item => item?.job_id}
           contentContainerStyle={{ columnGap:SIZES.medium}}
-          horizontal
           />
         )}
         </View>
