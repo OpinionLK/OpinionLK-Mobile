@@ -1,51 +1,52 @@
 import React from 'react'
 import { icons, SIZES, COLORS } from '../../../constants';
-import  PopularJobCard  from '../../common/cards/popular/PopularJobCard';
+import  CouponCard  from '../../common/cards/coupons/CouponCard';
 import { useState } from 'react'
 import {
-  View, Text, TouchableOpactiy, Image, FlatList, ActivityIndicator
+  View, Text, TouchableOpactiy, Image, FlatList, ActivityIndicator, ScrollView
 } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import useFetch from '../../../hook/useFetch';
 
-import styles from './popularjobs.style'
+import styles from './coupons.style'
 
-const Popularjobs = () => {
+const Coupons = () => {
   const router = useRouter();
 
   const {isLoading, error, data} = useFetch(
-    'search', {
-      query: 'React Developer',
-      num_pages: 1
+    {
+      page: '1',
+      sort: 'update_time_desc',
     })
+
+    console.log(data);
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popular Coupons</Text>
+        <Text style={styles.headerTitle}>All Coupons</Text>
       </View>
 
-      <View style={styles.cardsContainer}>
+      <ScrollView style={styles.cardsContainer} showVerticalScrollIndicator="false">
         {isLoading ? (
           <ActivityIndicator size="large" colors={COLORS.primary} />
         ): error ? (
           <Text>error</Text>
         ): (
           <FlatList
-          data={[1,2,3,4,5]}
+          data={[1,2,3,4,5,6,7,8,9,10]}
           renderItem={({ item }) => (
-            <PopularJobCard
-              // item = {item}
+            <CouponCard
+              item = {item}
             />
           )}
-          keyExtreactor={item => item?.job_id}
-          contentContainerStyle={{ columnGap:SIZES.medium}}
+          keyExtreactor={item => item?.id}
           />
         )}
-        </View>
+      </ScrollView>
     </View>
   )
 }
 
-export default Popularjobs
+export default Coupons

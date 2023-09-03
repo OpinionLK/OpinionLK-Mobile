@@ -3,10 +3,10 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants";
 
 const styles = StyleSheet.create({
-  container: (selectedJob, item) => ({
-    width: 260,
+  container: (selectedCoupon, item) => ({
+    width: "100%",
     padding: 5,
-    backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",
+    backgroundColor: selectedCoupon === item.id ? COLORS.primary : "#FFF",
     borderRadius: SIZES.medium,
     justifyContent: "space-between",
     ...SHADOWS.medium,
@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
     alignItems: "space-between",
     columnGap: SIZES.xSmall,
   }),
-  logoContainer: (selectedJob, item) => ({
+  logoContainer: (selectedCoupon, item) => ({
     width: 50,
     height: 50,
-    backgroundColor: selectedJob === item.job_id ? "#FFF" : COLORS.white,
+    backgroundColor: selectedCoupon === item.id ? "#FFF" : COLORS.white,
     borderRadius: SIZES.medium,
     justifyContent: "center",
     alignItems: "center",
@@ -34,13 +34,10 @@ const styles = StyleSheet.create({
     color: "#B3AEC6",
     marginTop: SIZES.small / 1.5,
   },
-  infoContainer: {
-    marginTop: SIZES.large,
-  },
-  jobName: (selectedJob, item) => ({
+  coupName: (selectedCoupon, item) => ({
     fontSize: SIZES.large,
     fontFamily: FONT.medium,
-    color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
+    color: selectedCoupon === item.id ? COLORS.white : COLORS.primary,
   }),
   infoWrapper: {
     flexDirection: "row",
@@ -48,10 +45,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  publisher: (selectedJob) => ({
+  publisher: (selectedCoupon) => ({
     fontSize: SIZES.medium - 2,
     fontFamily: FONT.bold,
-    color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
+    color: selectedCoupon === item.id ? COLORS.white : COLORS.primary,
   }),
   location: {
     fontSize: SIZES.medium - 2,
@@ -59,9 +56,14 @@ const styles = StyleSheet.create({
     color: "#B3AEC6",
   },
 
+  infoContainer: {
+    width: 220,
+    height: 70,
+  },
 
   getBtn: {
-    width: 50,
+    width: 60,
+    height: 90,
     color: COLORS.tertiary,
     padding: SIZES.xSmall,
     justifyContent: "center",
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
   },
   Description: {
+    color: COLORS.primary,
     fontSize: SIZES.small - 2,
     fontFamily: FONT.regular,
     
